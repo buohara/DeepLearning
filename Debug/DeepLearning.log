@@ -1,0 +1,82 @@
+﻿  Compiling CUDA source file neuralnetworkgpu.cu...
+  
+  F:\DeepLearningCUDA\DeepLearning>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o Debug\neuralnetworkgpu.cu.obj "F:\DeepLearningCUDA\DeepLearning\neuralnetworkgpu.cu" 
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1091): warning : calling a constexpr __host__ function("real") from a __host__ __device__ function("abs") is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1091): warning : calling a constexpr __host__ function("imag") from a __host__ __device__ function("abs") is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1091): warning : calling a constexpr __host__ function from a __host__ __device__ function is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1091): warning : calling a constexpr __host__ function from a __host__ __device__ function is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1096): warning : calling a constexpr __host__ function("real") from a __host__ __device__ function("abs") is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1096): warning : calling a constexpr __host__ function("imag") from a __host__ __device__ function("abs") is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1096): warning : calling a constexpr __host__ function from a __host__ __device__ function is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/MathFunctions.h(1096): warning : calling a constexpr __host__ function from a __host__ __device__ function is not allowed. The experimental flag '--expt-relaxed-constexpr' can be used to allow this.
+f:\deeplearningcuda\deeplearning\eigen\src/Core/products/Parallelizer.h(20): warning : variable "m_maxThreads" was set but never used
+f:\deeplearningcuda\deeplearning\eigen\src/Core/ArrayWrapper.h(94): warning : __declspec attributes ignored
+f:\deeplearningcuda\deeplearning\eigen\src/Core/products/Parallelizer.h(20): warning : variable "m_maxThreads" was set but never used
+f:\deeplearningcuda\deeplearning\eigen\src/Core/ArrayWrapper.h(94): warning : __declspec attributes ignored
+CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  neuralnetworkgpu.cu
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/JacobiSVD.h(659): error C2244: 'Eigen::JacobiSVD<MatrixType,QRPreconditioner>::allocate': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/JacobiSVD.h(613): note: see declaration of 'Eigen::JacobiSVD<MatrixType,QRPreconditioner>::allocate'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/JacobiSVD.h(659): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/JacobiSVD.h(659): note: 'void Eigen::JacobiSVD<MatrixType,QRPreconditioner>::allocate(::Eigen::SVDBase<Eigen::JacobiSVD<MatrixType,QRPreconditioner>>::Index,Eigen::SVDBase<Derived>::Index,unsigned int)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/JacobiSVD.h(659): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/JacobiSVD.h(659): note: 'void Eigen::JacobiSVD<MatrixType,QRPreconditioner>::allocate(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,unsigned int)'
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(235): error C2244: 'Eigen::BDCSVD<_MatrixType>::allocate': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(215): note: see declaration of 'Eigen::BDCSVD<_MatrixType>::allocate'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(235): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(235): note: 'void Eigen::BDCSVD<_MatrixType>::allocate(::Eigen::SVDBase<Eigen::BDCSVD<_MatrixType>>::Index,Eigen::SVDBase<Derived>::Index,unsigned int)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(235): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(235): note: 'void Eigen::BDCSVD<_MatrixType>::allocate(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,unsigned int)'
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(560): error C2244: 'Eigen::BDCSVD<_MatrixType>::divide': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(391): note: see declaration of 'Eigen::BDCSVD<_MatrixType>::divide'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(560): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(560): note: 'void Eigen::BDCSVD<_MatrixType>::divide(::Eigen::SVDBase<Eigen::BDCSVD<_MatrixType>>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(560): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(560): note: 'void Eigen::BDCSVD<_MatrixType>::divide(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(689): error C2244: 'Eigen::BDCSVD<_MatrixType>::computeSVDofM': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(571): note: see declaration of 'Eigen::BDCSVD<_MatrixType>::computeSVDofM'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(689): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(689): note: 'void Eigen::BDCSVD<_MatrixType>::computeSVDofM(::Eigen::SVDBase<Eigen::BDCSVD<_MatrixType>>::Index,Eigen::SVDBase<Derived>::Index,Eigen::Matrix<NumTraits<BDCSVD<_MatrixType>::MatrixType::Scalar>::Real,-1,-1,0,-1,-1> &,Eigen::Matrix<NumTraits<BDCSVD<_MatrixType>::MatrixType::Scalar>::Real,-1,1,0,-1,1> &,Eigen::Matrix<NumTraits<BDCSVD<_MatrixType>::MatrixType::Scalar>::Real,-1,-1,0,-1,-1> &)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(689): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(689): note: 'void Eigen::BDCSVD<_MatrixType>::computeSVDofM(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::Matrix<NumTraits<BDCSVD<_MatrixType>::MatrixType::Scalar>::Real,-1,-1,0,-1,-1> &,Eigen::Matrix<NumTraits<BDCSVD<_MatrixType>::MatrixType::Scalar>::Real,-1,1,0,-1,1> &,Eigen::Matrix<NumTraits<BDCSVD<_MatrixType>::MatrixType::Scalar>::Real,-1,-1,0,-1,-1> &)'
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(996): error C2244: 'Eigen::BDCSVD<_MatrixType>::deflation43': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(975): note: see declaration of 'Eigen::BDCSVD<_MatrixType>::deflation43'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(996): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(996): note: 'void Eigen::BDCSVD<_MatrixType>::deflation43(::Eigen::SVDBase<Eigen::BDCSVD<_MatrixType>>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(996): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(996): note: 'void Eigen::BDCSVD<_MatrixType>::deflation43(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1039): error C2244: 'Eigen::BDCSVD<_MatrixType>::deflation44': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1004): note: see declaration of 'Eigen::BDCSVD<_MatrixType>::deflation44'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1039): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1039): note: 'void Eigen::BDCSVD<_MatrixType>::deflation44(::Eigen::SVDBase<Eigen::BDCSVD<_MatrixType>>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1039): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1039): note: 'void Eigen::BDCSVD<_MatrixType>::deflation44(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1212): error C2244: 'Eigen::BDCSVD<_MatrixType>::deflation': unable to match function definition to an existing declaration
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1044): note: see declaration of 'Eigen::BDCSVD<_MatrixType>::deflation'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1212): note: definition
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1212): note: 'void Eigen::BDCSVD<_MatrixType>::deflation(::Eigen::SVDBase<Eigen::BDCSVD<_MatrixType>>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1212): note: existing declarations
+  f:\deeplearningcuda\deeplearning\eigen\src/SVD/BDCSVD.h(1212): note: 'void Eigen::BDCSVD<_MatrixType>::deflation(Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index,Eigen::SVDBase<Derived>::Index)'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(68): error C2059: syntax error: '<end Parse>'
+  f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(105): note: see reference to class template instantiation 'Eigen::UniformScaling<_Scalar>' being compiled
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(72): error C2976: 'Eigen::Transform': too few template arguments
+  f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Transform.h(201): note: see declaration of 'Eigen::Transform'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(72): error C2065: 'Derived': undeclared identifier
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(72): error C2923: 'Eigen::internal::plain_matrix_type': 'Derived' is not a valid template type argument for parameter 'T'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(72): error C2976: 'Eigen::internal::plain_matrix_type': too few template arguments
+  f:\deeplearningcuda\deeplearning\eigen\src/Core/util/XprHelper.h(275): note: see declaration of 'Eigen::internal::plain_matrix_type'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(73): error C2143: syntax error: missing ';' before '*'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(73): error C2238: unexpected token(s) preceding ';'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(73): error C2065: 'Derived': undeclared identifier
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(73): error C2923: 'Eigen::MatrixBase': 'Derived' is not a valid template type argument for parameter 'Derived'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(74): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(74): error C2988: unrecognizable template declaration/definition
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(74): error C2059: syntax error: 'return'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(74): error C2238: unexpected token(s) preceding ';'
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(76): error C2988: unrecognizable template declaration/definition
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(76): error C2143: syntax error: missing ';' before ''template<''
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(121): error C2440: 'return': cannot convert from 'Eigen::UniformScaling<float>' to 'Eigen::UniformScaling<float>'
+  f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(121): note: Cannot copy construct class 'Eigen::UniformScaling<float>' due to ambiguous copy constructors or no available copy constructor
+f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(123): error C2440: 'return': cannot convert from 'Eigen::UniformScaling<double>' to 'Eigen::UniformScaling<double>'
+  f:\deeplearningcuda\deeplearning\eigen\src/Geometry/Scaling.h(123): note: Cannot copy construct class 'Eigen::UniformScaling<double>' due to ambiguous copy constructors or no available copy constructor
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\BuildCustomizations\CUDA 8.0.targets(687,9): error MSB3721: The command ""C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o Debug\neuralnetworkgpu.cu.obj "F:\DeepLearningCUDA\DeepLearning\neuralnetworkgpu.cu"" exited with code 2.

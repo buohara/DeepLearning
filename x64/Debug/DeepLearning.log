@@ -1,0 +1,7 @@
+﻿  neuralnetworkgpu.cpp
+  DeepLearning.vcxproj -> F:\DeepLearningCUDA\DeepLearning\x64\Debug\DeepLearning.exe
+  DeepLearning.vcxproj -> F:\DeepLearningCUDA\DeepLearning\x64\Debug\DeepLearning.pdb (Full PDB)
+  copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\cudart*.dll" "F:\DeepLearningCUDA\DeepLearning\x64\Debug\"
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\cudart32_80.dll
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\cudart64_80.dll
+          2 file(s) copied.
