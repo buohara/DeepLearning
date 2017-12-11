@@ -74,7 +74,6 @@ void NNLayerGPU::EvaluateFull(
         1
     );
 
-    cudaDeviceSynchronize();
     sigmoids(out, aOut, spOut, outputSize);
 
     return;
@@ -112,7 +111,7 @@ void NNFullGPU::Init(NNSettings &params)
 
     for (auto &layer : layers)
     {
-        if (layer.layerType != HIDDEN_LAYER)
+        if (layerIdx == 0 || layerIdx == numLayers - 1)
         {
             layerIdx++;
             continue;
@@ -156,20 +155,20 @@ void NNFullGPU::ZeroGradient()
  * @param actual [description]
  */
 
-void NNFullGPU::BackProp(VectorXd &in, VectorXd &actual)
+void NNFullGPU::BackProp(double *imgIn, double *actual)
 {
     cudaMemcpy(
         scratch.activations[0],
-        in.data(),
+        imgIn,
         inputSize * sizeof(double),
-        cudaMemcpyHostToDevice
+        cudaMemcpyDeviceToDevice
     );
     
     cudaMemcpy(
         scratch.actual,
-        actual.data(),
+        actual,
         outputSize * sizeof(double),
-        cudaMemcpyHostToDevice
+        cudaMemcpyDeviceToDevice
     );
 
     for (uint32_t l = 1; l < numLayers; l++)
@@ -313,7 +312,7 @@ void NNFullGPU::SGDStepMiniBatch(
         uint32_t actualHot = ds.labels[idcs[i]];
         actual[actualHot] = 1.0f;
 
-        BackProp(ds.data[idcs[i]], actual);
+        BackProp(ds.cudaImgs[i], ds.cudaLabels[i]);
     }
 
     for (uint32_t l = 1; l < numLayers; l++)
@@ -372,6 +371,11 @@ void NNFullGPU::Train(MNISTDataSet &ds, NNSettings &learnParams)
         for (uint32_t j = 0; j < ds.numImgs; j += learnParams.miniBatchSize)
         {
             ZeroGradient();
+
+            if (j > 200)
+            {
+                exit(0);
+            }
 
             vector<uint32_t> miniBatchIdcs(inputIdcs.begin() + j,
                 inputIdcs.begin() + j + learnParams.miniBatchSize);
@@ -461,7 +465,6 @@ void NNFullGPU::Test(MNISTDataSet &testSet)
 
     double accuracy = 100.0f * ((double)matchCnt / (double)testSet.numImgs);
     cout << "NN test set accuracy: " << accuracy << "\n" << endl;
-    __debugbreak();
 }
 
 
@@ -578,6 +581,8 @@ void NNFullGPU::main(
     MNISTDataSet &testSet
 )
 {
+
+    trainingSet.InitCUDAImages();
     cublasCreate_v2(&hCublas);
 
     NNFullGPU NN;

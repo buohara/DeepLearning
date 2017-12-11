@@ -6,7 +6,6 @@
 #include <string>
 #include <iostream>
 
-
 #include <curand.h>
 #include <cublas_v2.h>
 
@@ -76,7 +75,7 @@ struct NNFullGPU
     void Init(NNSettings &params);
     
     void Evaluate(VectorXd &in, VectorXd &out);
-    void BackProp(VectorXd &in, VectorXd &actual);
+    void BackProp(double *imgIn, double *actual);
 
     void SGDStepMiniBatch(
         MNISTDataSet &ds,

@@ -154,7 +154,7 @@ void NNFullCPU::Init(NNSettings &params)
 
     for (auto &layer : layers)
     {
-        if (layer.layerType != HIDDEN_LAYER)
+        if (layerIdx == 0 || layerIdx == numLayers - 1)
         {
             layerIdx++;
             continue;

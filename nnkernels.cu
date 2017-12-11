@@ -1,5 +1,12 @@
 #include "nnkernels.cuh"
 
+/**
+ * [addKernel description]
+ * @param c [description]
+ * @param a [description]
+ * @param b [description]
+ */
+
 __global__ 
 void addKernel(int *c, const int *a, const int *b)
 {
@@ -7,12 +14,25 @@ void addKernel(int *c, const int *a, const int *b)
     c[i] = a[i] + b[i];
 }
 
+/**
+ * [hadamard description]
+ * @param a [description]
+ * @param b [description]
+ */
+
 __global__
 void hadamard(double *a, double *b)
 {
     int i = threadIdx.x;
     a[i] = a[i] * b[i];
 }
+
+/**
+ * [sigmoid description]
+ * @param zVec        [description]
+ * @param activations [description]
+ * @param sps         [description]
+ */
 
 __global__
 void sigmoid(double *zVec, double *activations, double *sps)
@@ -24,48 +44,29 @@ void sigmoid(double *zVec, double *activations, double *sps)
     sps[i] = sig * (1.0 - sig);
 }
 
+/**
+ * [had description]
+ * @param a           [description]
+ * @param b           [description]
+ * @param numElements [description]
+ */
+
 void had(double *a, double *b, int numElements)
 {
     hadamard <<< 1, numElements >>> (a, b);
     return;
 }
 
+/**
+ * [sigmoids description]
+ * @param zVec        [description]
+ * @param activations [description]
+ * @param sps         [description]
+ * @param numElements [description]
+ */
+
 void sigmoids(double *zVec, double *activations, double *sps, int numElements)
 {
     sigmoid <<< 1, numElements >>> (zVec, activations, sps);
     return;
-}
-
-void addCUDA(
-    vector<int> &c,
-    vector<int> &a,
-    vector<int> &b
-)
-{
-    int *dev_a = 0;
-    int *dev_b = 0;
-    int *dev_c = 0;
-    
-    size_t size = c.size();
-    
-    cudaError_t cudaStatus;
-
-    cudaStatus = cudaSetDevice(0);
-
-    cudaStatus = cudaMalloc((void**)&dev_c, size * sizeof(int));
-    cudaStatus = cudaMalloc((void**)&dev_a, size * sizeof(int));
-    cudaStatus = cudaMalloc((void**)&dev_b, size * sizeof(int));
-
-    cudaStatus = cudaMemcpy(dev_a, a.data(), size * sizeof(int), cudaMemcpyHostToDevice);
-    cudaStatus = cudaMemcpy(dev_b, b.data(), size * sizeof(int), cudaMemcpyHostToDevice);
-
-    addKernel <<< 1, size >>>(dev_c, dev_a, dev_b);
-    cudaStatus = cudaDeviceSynchronize();
-
-    cudaStatus = cudaMemcpy(c.data(), dev_c, size * sizeof(int), cudaMemcpyDeviceToHost);
-
-Error:
-    cudaFree(dev_c);
-    cudaFree(dev_a);
-    cudaFree(dev_b);
 }

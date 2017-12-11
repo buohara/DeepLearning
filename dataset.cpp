@@ -1,5 +1,10 @@
 #include "dataset.h"
 
+/**
+ * [MNISTDataSet::Init description]
+ * @param dataFile  [description]
+ * @param labelFile [description]
+ */
 
 void MNISTDataSet::Init(const char* dataFile, const char* labelFile)
 {
@@ -90,7 +95,7 @@ void MNISTDataSet::Init(const char* dataFile, const char* labelFile)
         labels[curLabel++] = (label % 100);
     }
 
-    // read of the labels...
+    // read labels...
 
     for (uint32_t i = 0; i < numImgs / 16; i++)
     {
@@ -110,4 +115,44 @@ void MNISTDataSet::Init(const char* dataFile, const char* labelFile)
     }
 
     fclose(df);
+}
+
+/**
+ * [MNISTDataSet::InitCUDAImages description]
+ */
+
+void MNISTDataSet::InitCUDAImages()
+{
+    cudaImgs.resize(data.size());
+    cudaLabels.resize(labels.size());
+
+    uint32_t i = 0;
+
+    for (auto &img : data)
+    {
+        cudaMalloc(&cudaImgs[i], imgSize * sizeof(double));
+
+        cudaMemcpy(
+            cudaImgs[i],
+            data[i].data(),
+            imgSize * sizeof(double),
+            cudaMemcpyHostToDevice
+        );
+    }
+
+    i = 0;
+
+    for (auto &label : labels)
+    {
+        cudaMalloc(&cudaLabels[i], 10 * sizeof(double));
+        double labelVec[10] = { 0.0 };
+        labelVec[labels[i]] = 1.0;
+
+        cudaMemcpy(
+            cudaLabels[i],
+            &labelVec[0],
+            10 * sizeof(double),
+            cudaMemcpyHostToDevice
+        );
+    }
 }
